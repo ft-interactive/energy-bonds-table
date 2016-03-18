@@ -1,0 +1,301 @@
+@import 'o-fonts/main';
+@import 'o-colors/main';
+@import 'o-grid/main';
+@import 'o-hoverable/main';
+
+$font-sans: MetricWeb, sans-serif;
+$font-serif: Georgia, serif;
+$font-display: FinancierDisplayWeb, Georgia, serif;
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @include oColorsFor(page, background);
+
+  margin: 0;
+  border: 0;
+  font-family: $font-sans;
+}
+
+.site-header {
+  padding: 18px 0 14px;
+  text-align: center;
+  border-bottom: 1px solid #e9decf;
+
+  > a {
+    opacity: 0.75;
+    &:hover { opacity: 1; }
+  }
+}
+
+.masthead {
+  height: 18px;
+}
+.headline {
+  font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+  font-size: 2.5em;
+  color: #333333;
+  line-height: 1.2em;
+  text-align: center;
+  position: relative;
+  font-weight: normal;
+  margin: 6px 0 0;
+}
+
+.intro {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+  font-size: 16px;
+  color: #505050;
+  line-height: 22px;
+  text-align: center;
+}
+
+.intro a,
+.party-blurb a {
+  text-decoration: none;
+  color: #2e6e9e;
+}
+
+// share links
+$twitter-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTMgLTEwMyA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS04MS44NjItODkuNzg2Yy0uODIuMzU3LTEuNy42LTIuNjI0LjcwOC45NDMtLjU1NiAxLjY2OC0xLjQzNiAyLjAxLTIuNDgzLS44ODMuNTEtMS44NjIuODgtMi45MDIgMS4wOC0uODMzLS44Ny0yLjAyLTEuNDItMy4zMzctMS40Mi0yLjUyMyAwLTQuNTcgMi4wMS00LjU3IDQuNDkgMCAuMzUuMDQuNjkuMTE4IDEuMDItMy44LS4xOS03LjE2Ny0xLjk3OC05LjQyLTQuNjktLjM5NC42Ni0uNjIgMS40My0uNjIgMi4yNiAwIDEuNTUuODA3IDIuOTMgMi4wMzMgMy43My0uNzUtLjAyNS0xLjQ1NC0uMjI4LTIuMDctLjU2di4wNTRjMCAyLjE3NiAxLjU3MyAzLjk5IDMuNjY3IDQuNC0uMzg0LjEwNC0uNzkuMTYtMS4yMDQuMTYtLjMgMC0uNTgtLjAyNy0uODYtLjA4LjU4IDEuNzgyIDIuMjcgMy4wOCA0LjI3IDMuMTE2LTEuNTcgMS4yMDUtMy41NCAxLjkyMy01LjY4IDEuOTIzLS4zNyAwLS43NC0uMDI2LTEuMDktLjA2NyAyLjAyIDEuMjcyIDQuNDIgMi4wMTUgNyAyLjAxNSA4LjQgMCAxMy02Ljg0IDEzLTEyLjc3IDAtLjE5NC0uMDA3LS4zOS0uMDE4LS41OC44OS0uNjMzIDEuNjY1LTEuNDI1IDIuMjgtMi4zMjV6Ii8+PC9zdmc+';
+
+$facebook-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTQgLTEwNSA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS05Ny05MS40NHYyLjk1aC0yLjE3djMuNjJILTk3djEwLjcyaDQuNDN2LTEwLjcyaDNzLjI2LTEuNzMuNC0zLjYyaC0zLjM4di0yLjQ3YzAtLjM3LjUtLjg3Ljk2LS44N2gyLjQzdi0zLjc1aC0zLjI4Yy00LjY2IDAtNC41NSAzLjYzLTQuNTUgNC4xNnoiLz48L3N2Zz4=';
+
+$linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTMgLTEwMyA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS0xMDMuMzMyLTkxLjMzYy41My41MzUgMS4xNy44MDMgMS45MTcuODAzLjc1IDAgMS4zODgtLjI2OCAxLjkxNy0uODAzLjUzLS41MzUuNzk1LTEuMTgzLjc5NS0xLjk0MiAwLS43Ni0uMjY1LTEuNDA0LS43OTUtMS45MzRzLTEuMTctLjc5NS0xLjkxNy0uNzk1Yy0uNzQ4IDAtMS4zODcuMjYtMS45MTcuNzlzLS43OTUgMS4xNy0uNzk1IDEuOTMuMjY1IDEuNDA3Ljc5NSAxLjk0MnptNC4yMzYgMTcuNTgzdi0xNC44M2gtNC41ODh2MTQuODNoNC41ODh6bTE3LjIyMyAwdi05LjM5YzAtMS45MjMtLjQ5LTMuMzg3LTEuNDc1LTQuMzkyLS45ODMtMS0yLjI5NC0xLjUtMy45MzMtMS41LS41OSAwLTEuMTUuMDg2LTEuNjcuMjU1LS41Mi4xNy0uOTQuMzc0LTEuMjcuNjE1LS4zMy4yNC0uNjE3LjQ4LS44Ni43Mi0uMjQ4LjI0LS40Mi40NDItLjUxOC42MDZsLS4xNjUuMjZ2LTEuOTk2aC00LjQwOHYxNC44M2g0LjQwN3YtNy43ODVjMC0xLjA2LjI0LTEuODguNzItMi40Ni40ODQtLjU4IDEuMTc3LS44NjcgMi4wODQtLjg2NyAxLjY3IDAgMi41MDggMS4xMSAyLjUwOCAzLjMyN3Y3Ljc4aDQuNTc0eiIvPjwvc3ZnPg==';
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.share-links-holder {
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+
+.share-links {  
+  // margin-left: 10px;
+  text-align: center;
+  > p { 
+    @include visually-hidden;
+  }
+
+  > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 8px;
+    > li {
+      display: inline-block;
+    }
+  }
+
+
+
+  &__link {
+    $size: 40px;
+    
+    display: block;
+    width: $size;
+    height: $size;
+    border-radius: 2px;
+    background-size: $size $size;
+
+    &--twitter { background-image: url('data:image/svg+xml;base64,' + $twitter-logo); }
+    &--facebook { background-image: url('data:image/svg+xml;base64,' + $facebook-logo); }
+    &--linked-in { background-image: url('data:image/svg+xml;base64,' + $linked-in-logo); }
+
+    &:hover { background-color: oColorsGetPaletteColor('pink-tint2'); }
+    &:active { background-color: oColorsGetPaletteColor('pink-tint3'); }
+    &:active,
+    &:focus {
+      outline: 0;
+      outline-color: oColorsGetPaletteColor('pink-tint1');
+    }
+
+    > span { @include visually-hidden; }
+  }
+  &:after {
+    display: block;
+    content: '';
+    border-bottom: 1px solid oColorsGetPaletteColor('pink-tint4');
+    width: 100px;
+    margin: 0 auto;
+  }
+}
+
+input {
+  width: 260px;
+  border-radius: 6px;
+  border: 1px solid oColorsGetPaletteColor('pink-tint4');
+  height: 36px;
+  padding: 0 16px 4px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  outline: 0;
+  outline-color: transparent;
+}
+
+
+table {
+  width: 100%;
+  -webkit-font-smoothing: antialiased;  
+  border-spacing: 0;
+  font-size: 14px;
+  &> thead {
+    &> tr {
+
+      &> th {
+        font-weight: 600;
+        background-color: oColorsGetPaletteColor('pink-tint2');
+        color: oColorsGetPaletteColor('grey-tint5');
+        border-bottom: 1px solid oColorsGetPaletteColor('pink-tint4');
+        cursor: default;
+        padding: 5px 30px 5px 10px;
+        text-align: left;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        cursor: pointer;
+        transition: background-color 0.3s; 
+        &:nth-child(n+3) {
+          text-align: center;
+        }
+        &:nth-child(n+7) {
+          text-align: left;
+        }
+        &:hover {
+          background-color: oColorsGetPaletteColor('pink-tint3');
+          transition: background-color 0s
+        }
+        &:active {
+          background-color: darken(oColorsGetPaletteColor('pink-tint3'), 5%);
+        }
+        &.sort-down{
+          background: url(https://image.webservices.ft.com/v1/images/raw/fticon:arrow-up?height=44&tint=9B164F,9B164F&source=ig_wrr) center center no-repeat oColorsGetPaletteColor('pink-tint3');
+          background-repeat: no-repeat;
+          background-position: 95% center;
+          background-position: right 15px center; 
+          background-size: 15px 15px;
+          margin: 0 7px 8px 0;
+        }
+        &.sort-up{
+          background: url(https://image.webservices.ft.com/v1/images/raw/fticon:arrow-down?height=44&tint=9B164F,9B164F&source=ig_wrr) center center no-repeat oColorsGetPaletteColor('pink-tint3');
+          background-repeat: no-repeat;
+          background-position: 95% center;
+          background-position: right 15px center; 
+          background-size: 15px 15px;
+          margin: 0 7px 8px 0;
+        }
+      }
+    }
+  }
+
+  &> tbody {
+    &> tr {
+
+      &:nth-child(odd) {
+        background-color: oColorsGetPaletteColor('pink-tint1');
+      }
+      td{
+        border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+        padding: 4px;
+        text-align: center;
+        -webkit-font-feature-settings: 'tnum' 1;
+        font-feature-settings: 'tnum' 1;
+        &:nth-child(n+4) {
+          padding-right: 30px;
+        }
+        &:nth-child(n+7) {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+td:nth-child(n+5),
+th:nth-child(n+5) {
+  display: none;
+}
+td:nth-child(3),
+th:nth-child(3) {
+  display: none;
+}
+
+@include oGridRespondTo(S) {
+  .intro {
+    font-size: 1.2em;
+    line-height: 1.4em;
+  }
+  td:nth-child(n),
+  th:nth-child(n) {
+    display: table-cell;
+  }
+  td:nth-child(n+6),
+  th:nth-child(n+6) {
+    display: none;
+  }
+}
+
+
+ @include oGridRespondTo(M) {
+  .headline {
+    font-size: 3em;
+    margin: 0.3em 0;
+  }
+  .intro {
+    font-size: 1.3em;
+    line-height: 1.4em;
+  }
+  table {
+    font-size: 16px;
+  }
+  td:nth-child(n),
+  th:nth-child(n) {
+    display: table-cell;
+  }
+  td:nth-child(n+8),
+  th:nth-child(n+8) {
+    display: none;
+  }
+}
+
+ @include oGridRespondTo(L) {
+  .headline {
+    font-size: 4em;
+    margin: 0.5em 0;
+  }
+  .intro {
+    font-size: 1.4em;
+    line-height: 1.5em;
+  }
+  td:nth-child(n),
+  th:nth-child(n) {
+    display: table-cell;
+  }
+  td:nth-child(n+10),
+  th:nth-child(n+10) {
+    display: none;
+  }
+}
+
+@include oGridRespondTo(XL) {
+  td:nth-child(n),
+  th:nth-child(n) {
+    display: table-cell;
+  }
+}
+
