@@ -300,17 +300,20 @@ table {
       }
     }
 
+    // ADDITIONAL STYLES
 
-    .sliding {
-      visibily: hidden;
+    // for the transtion
+    .child-table-container {
       height: 0px;
       transition: height 1s ease;
     }
 
+    // give an inviation to click
     .clickable {
       cursor: pointer;
     }
 
+    // remove default click-inducing styles on the header of the child table
     .notclickable {
       cursor: default;
       &:hover {
@@ -318,17 +321,6 @@ table {
       }
     }
 
-    .opened {
-//      background: red;
-    }
-
-    table > tbody > tr.subtable {
-//      background: red;
-    }
-
-    .subtable {
-      visibility: hidden;
-    }
     .right-aligned-cell {
       text-align: right;
     }
