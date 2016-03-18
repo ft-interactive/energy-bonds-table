@@ -84,10 +84,10 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   margin: 0 auto 20px;
 }
 
-.share-links {  
+.share-links {
   // margin-left: 10px;
   text-align: center;
-  > p { 
+  > p {
     @include visually-hidden;
   }
 
@@ -104,7 +104,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
 
   &__link {
     $size: 40px;
-    
+
     display: block;
     width: $size;
     height: $size;
@@ -151,7 +151,7 @@ input {
 
 table {
   width: 100%;
-  -webkit-font-smoothing: antialiased;  
+  -webkit-font-smoothing: antialiased;
   border-spacing: 0;
   font-size: 14px;
   &> thead {
@@ -164,15 +164,15 @@ table {
         border-bottom: 1px solid oColorsGetPaletteColor('pink-tint4');
         cursor: default;
         padding: 5px 30px 5px 10px;
-        text-align: left;
+        text-align: center;
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
         cursor: pointer;
-        transition: background-color 0.3s; 
-        &:nth-child(n+3) {
-          text-align: center;
-        }
+        transition: background-color 0.3s;
+        //&:nth-child(n+3) {
+        //  text-align: center;
+        //}
         &:nth-child(n+7) {
           text-align: left;
         }
@@ -185,117 +185,150 @@ table {
         }
         &.sort-down{
           background: url(https://image.webservices.ft.com/v1/images/raw/fticon:arrow-up?height=44&tint=9B164F,9B164F&source=ig_wrr) center center no-repeat oColorsGetPaletteColor('pink-tint3');
-          background-repeat: no-repeat;
-          background-position: 95% center;
-          background-position: right 15px center; 
-          background-size: 15px 15px;
-          margin: 0 7px 8px 0;
+                          background-repeat: no-repeat;
+                          background-position: 95% center;
+                          background-position: right 15px center;
+                          background-size: 15px 15px;
+                          margin: 0 7px 8px 0;
+                         }
+          &.sort-up{
+            background: url(https://image.webservices.ft.com/v1/images/raw/fticon:arrow-down?height=44&tint=9B164F,9B164F&source=ig_wrr) center center no-repeat oColorsGetPaletteColor('pink-tint3');
+                            background-repeat: no-repeat;
+                            background-position: 95% center;
+                            background-position: right 15px center;
+                            background-size: 15px 15px;
+                            margin: 0 7px 8px 0;
+                           }
+          }
         }
-        &.sort-up{
-          background: url(https://image.webservices.ft.com/v1/images/raw/fticon:arrow-down?height=44&tint=9B164F,9B164F&source=ig_wrr) center center no-repeat oColorsGetPaletteColor('pink-tint3');
-          background-repeat: no-repeat;
-          background-position: 95% center;
-          background-position: right 15px center; 
-          background-size: 15px 15px;
-          margin: 0 7px 8px 0;
+      }
+
+      &> tbody {
+        &> tr {
+
+          &:nth-child(odd) {
+            background-color: oColorsGetPaletteColor('pink-tint1');
+          }
+
+          td{
+            border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+            padding: 4px;
+            text-align: left;
+            -webkit-font-feature-settings: 'tnum' 1;
+            font-feature-settings: 'tnum' 1;
+            &:nth-child(n+4) {
+              padding-right: 30px;
+            }
+            &:nth-child(n+7) {
+              padding-right: 10px;
+            }
+          }
         }
       }
     }
-  }
 
-  &> tbody {
-    &> tr {
+    td:nth-child(n+5),
+    th:nth-child(n+5) {
+      display: none;
+    }
+    td:nth-child(3),
+    th:nth-child(3) {
+      display: none;
+    }
 
-      &:nth-child(odd) {
-        background-color: oColorsGetPaletteColor('pink-tint1');
+    @include oGridRespondTo(S) {
+      .intro {
+        font-size: 1.2em;
+        line-height: 1.4em;
       }
-      td{
-        border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
-        padding: 4px;
-        text-align: center;
-        -webkit-font-feature-settings: 'tnum' 1;
-        font-feature-settings: 'tnum' 1;
-        &:nth-child(n+4) {
-          padding-right: 30px;
-        }
-        &:nth-child(n+7) {
-          padding-right: 10px;
-        }
+      td:nth-child(n),
+      th:nth-child(n) {
+        display: table-cell;
+      }
+      td:nth-child(n+6),
+      th:nth-child(n+6) {
+        display: none;
       }
     }
-  }
-}
-
-td:nth-child(n+5),
-th:nth-child(n+5) {
-  display: none;
-}
-td:nth-child(3),
-th:nth-child(3) {
-  display: none;
-}
-
-@include oGridRespondTo(S) {
-  .intro {
-    font-size: 1.2em;
-    line-height: 1.4em;
-  }
-  td:nth-child(n),
-  th:nth-child(n) {
-    display: table-cell;
-  }
-  td:nth-child(n+6),
-  th:nth-child(n+6) {
-    display: none;
-  }
-}
 
 
- @include oGridRespondTo(M) {
-  .headline {
-    font-size: 3em;
-    margin: 0.3em 0;
-  }
-  .intro {
-    font-size: 1.3em;
-    line-height: 1.4em;
-  }
-  table {
-    font-size: 16px;
-  }
-  td:nth-child(n),
-  th:nth-child(n) {
-    display: table-cell;
-  }
-  td:nth-child(n+8),
-  th:nth-child(n+8) {
-    display: none;
-  }
-}
+    @include oGridRespondTo(M) {
+      .headline {
+        font-size: 3em;
+        margin: 0.3em 0;
+      }
+      .intro {
+        font-size: 1.3em;
+        line-height: 1.4em;
+      }
+      table {
+        font-size: 16px;
+      }
+      td:nth-child(n),
+      th:nth-child(n) {
+        display: table-cell;
+      }
+      td:nth-child(n+8),
+      th:nth-child(n+8) {
+        display: none;
+      }
+    }
 
- @include oGridRespondTo(L) {
-  .headline {
-    font-size: 4em;
-    margin: 0.5em 0;
-  }
-  .intro {
-    font-size: 1.4em;
-    line-height: 1.5em;
-  }
-  td:nth-child(n),
-  th:nth-child(n) {
-    display: table-cell;
-  }
-  td:nth-child(n+10),
-  th:nth-child(n+10) {
-    display: none;
-  }
-}
+    @include oGridRespondTo(L) {
+      .headline {
+        font-size: 4em;
+        margin: 0.5em 0;
+      }
+      .intro {
+        font-size: 1.4em;
+        line-height: 1.5em;
+      }
+      td:nth-child(n),
+      th:nth-child(n) {
+        display: table-cell;
+      }
+      td:nth-child(n+10),
+      th:nth-child(n+10) {
+        display: none;
+      }
+    }
 
-@include oGridRespondTo(XL) {
-  td:nth-child(n),
-  th:nth-child(n) {
-    display: table-cell;
-  }
-}
+    @include oGridRespondTo(XL) {
+      td:nth-child(n),
+      th:nth-child(n) {
+        display: table-cell;
+      }
+    }
 
+
+    .sliding {
+      visibily: hidden;
+      height: 0px;
+      transition: height 1s ease;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+
+    .notclickable {
+      cursor: default;
+      &:hover {
+        background-color: #e9decf;
+      }
+    }
+
+    .opened {
+//      background: red;
+    }
+
+    table > tbody > tr.subtable {
+//      background: red;
+    }
+
+    .subtable {
+      visibility: hidden;
+    }
+    .right-aligned-cell {
+      text-align: right;
+    }
