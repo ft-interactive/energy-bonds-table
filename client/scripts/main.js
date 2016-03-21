@@ -79,7 +79,7 @@ function formatChildTableData(data) {
       bonds: fund.values.map(value => {
         return {
           'Bond': value.bond,
-          'Country': value.country,
+          // 'Country': value.country,
           'Issuer': value.issuer,
           'Maturity': value.maturity,
           'Rating': value.rating
@@ -202,6 +202,7 @@ function closeChildTable(row) {
 
   // start the transition
   childTableContainer.style.height = '0px';
+  childTableContainer.classList.add('hideText');
 }
 
 function closeAllChildTables() {

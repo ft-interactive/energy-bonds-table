@@ -305,7 +305,7 @@ table {
     // for the transtion
     .child-table-container {
       height: 0px;
-      transition: height 1s ease;
+      transition: height 0.5s ease;
     }
 
     // give an inviation to click
@@ -323,4 +323,8 @@ table {
 
     .right-aligned-cell {
       text-align: right;
+    }
+
+    .hideText tr{
+      display:none;
     }
